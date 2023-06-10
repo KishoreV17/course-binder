@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { addDoc, collection, deleteDoc, getDocs, query,serverTimestamp, updateDoc, where } from "firebase/firestore";
-=======
-import { addDoc, collection, deleteDoc, getDocs, limit, orderBy, query, updateDoc, where } from "firebase/firestore";
->>>>>>> 2120b520fe73c1fb3eec15d3405e4e8d3e9bf0dc
+import { addDoc, collection, deleteDoc, getDocs, query,serverTimestamp, updateDoc, where, limit, orderBy } from "firebase/firestore";
 import { firebase_app, firebase_file_storage, firestore_db } from "./firebase";
 import { Channel, CHANNEL_ROLE, CourseBinderError, ERROR_TYPE, FirebaseFile, FirebaseFolder, User } from "~/types";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
@@ -468,7 +464,7 @@ export const uploadMessage = async (email: string, message: string, channel: Cha
         message:message,
         timestamp: currentTime,
     });
-
+}
 
 export const getNotifications = async (email: string, limit_count: number) => {
     const notificationsSnapshot = await getDocs(
@@ -534,7 +530,6 @@ export const sendNotifications = async (email_list: string[], channel: string, m
     }
     return true;
 }
-<<<<<<< HEAD
 export const getPrevmessages = async (channel: Channel) => {
     console.log("channel name", channel)
 
@@ -562,7 +557,6 @@ export const getPrevmessages = async (channel: Channel) => {
     console.log(sortedEmailsAndMessages);
     return sortedEmailsAndMessages;
   };
-=======
 
 export const notifyChannel = async (channel_code: string, message: string) => {
     console.log(channel_code, message)
@@ -603,4 +597,3 @@ export const notifyAllUsers = async (message: string) => {
 
     return status;
 }
->>>>>>> 2120b520fe73c1fb3eec15d3405e4e8d3e9bf0dc

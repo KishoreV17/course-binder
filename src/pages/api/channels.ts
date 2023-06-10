@@ -1,9 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-<<<<<<< HEAD
-import { addUserToChannel, createChannel, resetFile, getAllChannels, getAllFiles, getChannelsRolesWithUser, getChannelsWithoutUser, getUserRole, removeUserFromChannel, setNewTemplate, uploadFile, uploadMessage, getPrevmessages } from "~/server/db";
-=======
-import { addUserToChannel, createChannel, resetFile, getAllChannels, getAllFiles, getChannelsRolesWithUser, getChannelsWithoutUser, getUserRole, removeUserFromChannel, setNewTemplate, uploadFile, notifyChannel } from "~/server/db";
->>>>>>> 2120b520fe73c1fb3eec15d3405e4e8d3e9bf0dc
+import { addUserToChannel, createChannel, resetFile, getAllChannels, getAllFiles, getChannelsRolesWithUser, getChannelsWithoutUser, getUserRole, removeUserFromChannel, setNewTemplate, uploadFile, uploadMessage, getPrevmessages, notifyChannel } from "~/server/db";
 import { Channel } from "~/types";
 import { constructPercentageDict } from "~/utils";
 
