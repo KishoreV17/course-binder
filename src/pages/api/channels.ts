@@ -1,5 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
+<<<<<<< HEAD
 import { addUserToChannel, createChannel, resetFile, getAllChannels, getAllFiles, getChannelsRolesWithUser, getChannelsWithoutUser, getUserRole, removeUserFromChannel, setNewTemplate, uploadFile, uploadMessage, getPrevmessages } from "~/server/db";
+=======
+import { addUserToChannel, createChannel, resetFile, getAllChannels, getAllFiles, getChannelsRolesWithUser, getChannelsWithoutUser, getUserRole, removeUserFromChannel, setNewTemplate, uploadFile, notifyChannel } from "~/server/db";
+>>>>>>> 2120b520fe73c1fb3eec15d3405e4e8d3e9bf0dc
 import { Channel } from "~/types";
 import { constructPercentageDict } from "~/utils";
 
@@ -54,6 +58,10 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         res.json(recieveMessages);
     }
     else {
+    } else if (req.body.type == "NOTIFY_CHANNEL") {
+        const status = await notifyChannel(req.body.channel_code, req.body.message);
+        res.json(status);
+    } else {
         res.json({
             error: "Invalid request"
         })
