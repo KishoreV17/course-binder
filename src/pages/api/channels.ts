@@ -53,8 +53,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         const recieveMessages=await getPrevmessages(req.body.channel);
         res.json(recieveMessages);
     }
-    else {
-    } else if (req.body.type == "NOTIFY_CHANNEL") {
+    
+    else if (req.body.type == "NOTIFY_CHANNEL") {
         const status = await notifyChannel(req.body.channel_code, req.body.message);
         res.json(status);
     } else {
